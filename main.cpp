@@ -133,7 +133,7 @@ int main( void )
 
 
      double xpos, ypos;
-
+//
         glm::vec3 lightPos(0.0f, 0.0f, 0.5f);
       float count = 0.0f;
       bool flag = false;
