@@ -1,0 +1,409 @@
+// Include standard headers
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <math.h>
+#include <vector>
+
+// Include GLEW
+#include <GL/glew.h>
+
+// Include GLFW
+#include <glfw3.h>
+
+GLFWwindow* window;
+
+#define LOG(x) std::cout << x << std::endl
+#define DEBUG 0
+
+// Include GLM
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
+#include <GameEngine/shaders/Shader.hpp>
+#include <GameEngine/textures/texture.hpp>
+#include <GameEngine/controls/controls.hpp>
+
+//#include <GameEngine/meshes/Mesh.hpp>
+//#include <GameEngine/meshes/Model.hpp>
+
+#include <GameEngine/meshes/shapes/Box.hpp>
+
+float norm(glm::vec3 normalizationVector) {
+
+    return sqrt(normalizationVector[0]*normalizationVector[0] + normalizationVector[1]*normalizationVector[1] + normalizationVector[2]*normalizationVector[2]);
+}
+
+
+
+int main( void )
+{
+
+
+    // Initialise GLFW
+    if( !glfwInit() )
+    {
+        fprintf( stderr, "Failed to initialize GLFW\n" );
+        return -1;
+    }
+
+    glfwWindowHint(GLFW_SAMPLES, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    // Open a window and create its OpenGL context
+
+#if DEBUG < 1
+    window = glfwCreateWindow( 1024, 768, "Beta Project", NULL, NULL);
+    if( window == NULL ){
+        fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
+        glfwTerminate();
+        return -1;
+    }
+    glfwMakeContextCurrent(window);
+
+    // Initialize GLEW
+    glewExperimental = true; // Needed for core profile
+    if (glewInit() != GLEW_OK) {
+        fprintf(stderr, "Failed to initialize GLEW\n");
+        return -1;
+    }
+
+    // Ensure we can capture the escape key being pressed below
+    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+#endif
+    // Dark blue background
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+
+    // Enable depth test
+    glEnable(GL_DEPTH_TEST);
+    // Accept fragment if it closer to the camera than the former one
+    glDepthFunc(GL_LEQUAL);
+
+    // HINT : VAO
+    //GLuint VertexArrayID;
+   // glGenVertexArrays(1, &VertexArrayID);
+   // glBindVertexArray(VertexArrayID);
+
+
+    // Create and compile our GLSL program from the shaders
+    //GLuint programID = LoadShaders( "shaders/SimpleVertexShader.vertexshader", "shaders/SimpleFragmentShader.fragmentshader" );
+    //Shader ourShader("/home/nikolay/Projects/OpenGL-tutorial_v0014_33/GameEngine/shaders/SimpleVertexShader.vertexshader", "/home/nikolay/Projects/OpenGL-tutorial_v0014_33/GameEngine/shaders/SimpleFragmentShader.fragmentshader");
+
+
+    // Get a handle for our "MVP" uniform
+    //GLuint MatrixID = glGetUniformLocation(ourShader.Program, "MVP");
+    //GLuint ModelID = glGetUniformLocation(ourShader.Program, "Model");
+
+   /*  char const * cubeImagePath[] = {
+        "./textureImages/right.bmp",
+        "./textureImages/left.bmp",
+        "./textureImages/bottom.bmp",
+        "./textureImages/top.bmp",
+        "./textureImages/front.bmp",
+        "./textureImages/back.bmp",
+    };
+
+   char const * cubeImagePath[] = {
+            "./textureImages/negx.bmp",
+            "./textureImages/posx.bmp",
+            "./textureImages/negy.bmp",
+            "./textureImages/posy.bmp",
+            "./textureImages/negz.bmp",
+            "./textureImages/posz.bmp",
+        };
+
+
+    loadBMP_Cubemap(cubeImagePath);*/
+
+    // Get a handle for our "myTextureSampler" uniform
+    //GLuint TextureID  = glGetUniformLocation(ourShader.Program, "myTextureSampler");
+
+    //GLint lightPosLoc = glGetUniformLocation(ourShader.Program, "lightPos");
+   // glm::vec4 lightPos(1.2f, 1.0f, 2.0f, 1.0f);
+
+/*
+    GLfloat vertexArray[] = {
+       -1.0f, 1.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, -1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, -1.0f,
+        1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, 1.0f,
+        1.0f, 1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
+    };
+
+
+
+   std::vector<GLfloat> g_vertex_buffer_data(vertexArray, vertexArray + 108 );
+   std::vector<GLfloat> g_uv_buffer_data;
+   std::vector<GLfloat> g_normal_buffer_data;
+
+*/
+   /*const float pi = 3.1415926f;
+   std::vector<triangle> triangles;
+
+    GLfloat cx = 0.0f;
+    GLfloat cy = 0.0f;
+    GLfloat cz = 0.0f;
+
+   for(int i = 9; i <= g_vertex_buffer_data.size(); i+=9) {
+
+       glm::vec3 v0 = glm::vec3(g_vertex_buffer_data[i-9] + cx, g_vertex_buffer_data[i-8] + cy, g_vertex_buffer_data[i-7] + cz);
+       glm::vec3 v1 = glm::vec3(g_vertex_buffer_data[i-6] + cx, g_vertex_buffer_data[i-5] + cy, g_vertex_buffer_data[i-4] + cz);
+       glm::vec3 v2 = glm::vec3(g_vertex_buffer_data[i-3] + cx, g_vertex_buffer_data[i-2] + cy, g_vertex_buffer_data[i-1] + cz);
+
+
+       triangle tr(v0, v1, v2);
+       triangles.push_back(tr);
+   }
+
+
+   g_vertex_buffer_data.clear();
+
+
+
+   int num_iterations = 3;
+
+   for(int it_counter = 0; it_counter < num_iterations ; it_counter++) {
+
+        std::vector<triangle> sphere_data;
+
+        for(int i = 0; i < triangles.size(); i++) {
+
+            std::vector<vertex> vertices= triangles[i].getVertices();
+
+            vertex v0 = vertices[0];
+            vertex v1 = vertices[1];
+            vertex v2 = vertices[2];
+
+            vertex w0( (v1.getCoordinates() + v2.getCoordinates()) / 2.0f);
+            vertex w1( (v0.getCoordinates() + v2.getCoordinates())  / 2.0f );
+            vertex w2( (v0.getCoordinates() + v1.getCoordinates())  / 2.0f);
+
+
+            triangle tr0(v0.getCoordinates(), w2.getCoordinates(), w1.getCoordinates());
+            triangle tr1(v1.getCoordinates(), w0.getCoordinates(), w2.getCoordinates());
+            triangle tr2(v2.getCoordinates(), w1.getCoordinates(), w0.getCoordinates());
+            triangle tr3(w0.getCoordinates(), w1.getCoordinates(), w2.getCoordinates());
+
+
+            sphere_data.push_back(tr0);
+            sphere_data.push_back(tr1);
+            sphere_data.push_back(tr2);
+            sphere_data.push_back(tr3);
+
+        }
+
+
+        triangles.clear();
+
+        for(int j = 0; j < sphere_data.size(); j++) {
+             triangles.push_back(sphere_data[j]);
+
+        }
+
+   }
+
+    for(int i = 0; i < triangles.size(); i++) {
+        triangles[i].mapCubeToSphere();
+        std::vector<vertex> vertices = triangles[i].getVertices();
+            for(int j = 0 ; j < vertices.size(); j++) {
+
+               // vertices[j].setNormal(vertices[j].getNormal() / (GLfloat)vertices[j].getAdjacentCount());
+                //std::cout << (GLfloat)vertices[j].getAdjacentCount() << std::endl;
+                //glm::vec3 normal = vertices[j].getNormal();
+                //g_normal_buffer_data.push_back(normal.x);
+               // g_normal_buffer_data.push_back(normal.y);
+               // g_normal_buffer_data.push_back(normal.z);
+               // g_normal_buffer_data.push_back(1.0f);
+
+
+                glm::vec3 coord = vertices[j].getCoordinates();
+                coord /= norm(coord);
+
+                g_uv_buffer_data.push_back(coord.x);
+                g_uv_buffer_data.push_back(coord.y);
+                g_uv_buffer_data.push_back(coord.z);
+            }
+
+           triangles[i].copyToBuffer(g_vertex_buffer_data);
+    }
+
+
+for(int i = 0 ; i < g_normal_buffer_data.size(); i+=4) {
+   // std::cout << g_normal_buffer_data[i]<< "  " << g_normal_buffer_data[i + 1] << "  " << g_normal_buffer_data[i + 2] << "  " <<  g_normal_buffer_data[i + 3] << std::endl;
+
+}
+*/
+   //vert.size()   ,  vert.data();
+
+      // HINT : VBO's
+
+   //Vertex::Position
+   /* GLuint vertexbuffer;
+    glGenBuffers(1, &vertexbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, g_vertex_buffer_data.size() * sizeof(GLfloat), g_vertex_buffer_data.data(), GL_STATIC_DRAW);
+
+    //Vertex::TexCoords
+    GLuint uvbuffer;
+    glGenBuffers(1, &uvbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+    glBufferData(GL_ARRAY_BUFFER, g_uv_buffer_data.size() * sizeof(GLfloat), g_uv_buffer_data.data(), GL_STATIC_DRAW);
+
+    //Vertex.Normal
+    GLuint normalbuffer;
+    glGenBuffers(1, &normalbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+    glBufferData(GL_ARRAY_BUFFER, g_normal_buffer_data.size() * sizeof(GLfloat), g_normal_buffer_data.data(), GL_STATIC_DRAW);
+*/
+  //  glm::mat4 Model      = glm::mat4(1.0f);
+//    glm::vec3 direction = glm::vec3(0, 1 , 0);
+    //glm::mat4 Rotation = glm::mat4(1.0f);
+    //Rotation = glm::rotate(Rotation, 1.0f, direction);
+
+
+    //Box box(glm::vec3(0.5f, 0.5f, 0.5f), 1.0f, 1.0f, 1.0f);
+
+
+    do{
+
+       // computeMatricesFromInputs();
+       // glm::mat4 ProjectionMatrix = getProjectionMatrix();
+       // glm::mat4 ViewMatrix = getViewMatrix();
+      //  glm::mat4 ModelMatrix = glm::mat4(1.0);
+       // glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+       // glm::vec3 position = getPosition();
+
+        // Clear the screen
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        // Use our shader
+        //glUseProgram(programID);
+       // ourShader.Use();
+
+
+        //glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+        //glUniformMatrix4fv(ModelID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+       // box.Draw(ourShader);
+        // Bind our texture in Texture Unit 0
+       // glActiveTexture(GL_TEXTURE0);
+      //  glBindTexture(GL_TEXTURE_CUBE_MAP, 1);
+        // Set our "myTextureSampler" sampler to user Texture Unit 0
+     //   glUniform1i(TextureID, 0);
+
+
+        // Lightining
+      /*  glUniform4f(lightPosLoc, lightPos.x, lightPos.y, lightPos.z, lightPos.w);
+
+        // 1rst attribute buffer : vertices
+        glEnableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+        glVertexAttribPointer(
+            0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+            3,                  // size
+            GL_FLOAT,           // type
+            GL_FALSE,           // normalized?
+            0,                  // stride
+            (void*)0           // array buffer offset
+        );
+
+        // 2nd attribute buffer : UVs
+        glEnableVertexAttribArray(1);
+        glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+        glVertexAttribPointer(
+            1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+            3,                                // size : U+V+S => 3
+            GL_FLOAT,                         // type
+            GL_FALSE,                         // normalized?
+            0,                                // stride
+            (void*)0                          // array buffer offset
+        );
+
+        // 3rd attribute buffer : Normals
+        glEnableVertexAttribArray(2);
+        glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+        glVertexAttribPointer(
+            2,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+            4,                                // size : 4
+            GL_FLOAT,                         // type
+            GL_FALSE,                         // normalized?
+            0,                                // stride
+            (void*)0                          // array buffer offset
+        );
+
+*/
+
+        // Draw the triangle !
+      //  glDrawArrays(GL_TRIANGLES, 0, g_vertex_buffer_data.size()*3 ); // 3 indices starting at 0 -> 1 triangle
+
+
+     //   glDisableVertexAttribArray(0);
+     //   glDisableVertexAttribArray(1);
+     //   glDisableVertexAttribArray(2);
+
+        // Swap buffers
+       // glfwSwapBuffers(window);
+        //glfwPollEvents();
+
+    } // Check if the ESC key was pressed or the window was closed
+    //#if DEBUG < 1
+    while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
+           glfwWindowShouldClose(window) == 0 );
+   // #else
+   // while(1);
+   // #endif
+    // Cleanup VBO
+    //glDeleteBuffers(1, &vertexbuffer);
+    //glDeleteBuffers(1, &uvbuffer);
+    //glDeleteBuffers(1, &normalbuffer);
+   // glDeleteVertexArrays(1, &VertexArrayID);
+    //glDeleteTextures(1, &TextureID);
+    //                                                      glDeleteProgram(ourShader.Program);
+
+    // Close OpenGL window and terminate GLFW
+    //glfwTerminate();
+
+
+    return 0;
+}
+
+

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="GLFW" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\glfw-3.0.3\;CMake Files\external\glfw-3.0.3\docs\;CMake Files\external\glfw-3.0.3\src\;CMake Files\external\rpavlik-cmake-modules-1c73e35\;CMake Files\external\assimp-3.0.1270\;CMake Files\external\assimp-3.0.1270\contrib\;CMake Files\external\assimp-3.0.1270\contrib\zlib\;CMake Files\external\assimp-3.0.1270\code\;CMake Files\external\bullet-2.81-rev2613\;CMake Files\external\bullet-2.81-rev2613\src\;CMake Files\external\bullet-2.81-rev2613\src\BulletSoftBody\;CMake Files\external\bullet-2.81-rev2613\src\BulletCollision\;CMake Files\external\bullet-2.81-rev2613\src\BulletDynamics\;CMake Files\external\bullet-2.81-rev2613\src\LinearMath\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="GLFW_303">
+         <Option output="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/libglfw3.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src" />
+            <Add directory="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.9" />
+            <Add directory="/usr/include/c++/4.9/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.9" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 GLFW_303" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="GLFW_303/fast">
+         <Option output="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/libglfw3.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src" />
+            <Add directory="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.9" />
+            <Add directory="/usr/include/c++/4.9/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.9" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 GLFW_303/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/clipboard.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/context.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/gamma.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glx_context.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/init.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/input.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/joystick.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/monitor.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/time.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/window.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_clipboard.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_gamma.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_init.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_joystick.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_monitor.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_time.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_unicode.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_window.c">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/build/external/glfw-3.0.3/src/config.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/include/GLFW/glfw3.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/include/GLFW/glfw3native.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glx_platform.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/internal.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/x11_platform.h">
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/docs/Doxyfile.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\docs\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/docs/Doxyfile.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\docs\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/config.h.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfwConfig.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfwConfigVersion.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfw3.pc.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/config.h.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfwConfig.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfwConfigVersion.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/glfw3.pc.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/glfw-3.0.3/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.0.3\src\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/rpavlik-cmake-modules-1c73e35/CreateLaunchers.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-1c73e35\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/rpavlik-cmake-modules-1c73e35/CleanDirectoryList.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-1c73e35\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/rpavlik-cmake-modules-1c73e35/MSVCMultipleProcessCompile.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-1c73e35\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/assimp-3.0.1270/contrib/zlib/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\assimp-3.0.1270\contrib\zlib\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/assimp-3.0.1270/code/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\assimp-3.0.1270\code\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/bullet-2.81-rev2613/src/BulletSoftBody/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletSoftBody\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/bullet-2.81-rev2613/src/BulletCollision/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletCollision\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletDynamics\" />
+      </Unit>
+      <Unit filename="/home/nikolay/Projects/GameEngine/external/bullet-2.81-rev2613/src/LinearMath/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\LinearMath\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

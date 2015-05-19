@@ -1,0 +1,152 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1296424600/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1296424600.dir/build.make CMakeFiles/cmTryCompileExec1296424600.dir/build
+make[1]: Entering directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1296424600.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1296424600.dir/CheckSymbolExists.c.o   -c /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1296424600
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1296424600.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1296424600.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1296424600 -rdynamic 
+CMakeFiles/cmTryCompileExec1296424600.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1296424600] Error 1
+make[1]: Leaving directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1296424600/fast] Error 2
+
+File /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3227223467/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3227223467.dir/build.make CMakeFiles/cmTryCompileExec3227223467.dir/build
+make[1]: Entering directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3227223467.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3227223467.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3227223467
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3227223467.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3227223467.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3227223467 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3227223467] Error 1
+make[1]: Leaving directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3227223467/fast] Error 2
+
+
+Determining if the function glXGetProcAddressEXT exists failed with the following output:
+Change Dir: /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2762181290/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2762181290.dir/build.make CMakeFiles/cmTryCompileExec2762181290.dir/build
+make[1]: Entering directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2762181290.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT   -o CMakeFiles/cmTryCompileExec2762181290.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2762181290
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2762181290.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT    CMakeFiles/cmTryCompileExec2762181290.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2762181290 -rdynamic -lGL 
+CMakeFiles/cmTryCompileExec2762181290.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x15): undefined reference to `glXGetProcAddressEXT'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec2762181290] Error 1
+make[1]: Leaving directory `/home/nikolay/Projects/OpenGL-tutorial_v0014_33/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2762181290/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4248252070/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4248252070.dir/build.make CMakeFiles/cmTryCompileExec4248252070.dir/build
+make[1]: Entering directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4248252070.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4248252070.dir/CheckSymbolExists.c.o   -c /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec4248252070
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4248252070.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec4248252070.dir/CheckSymbolExists.c.o  -o cmTryCompileExec4248252070 -rdynamic 
+CMakeFiles/cmTryCompileExec4248252070.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec4248252070.dir/build.make:88: recipe for target 'cmTryCompileExec4248252070' failed
+make[1]: *** [cmTryCompileExec4248252070] Error 1
+make[1]: Leaving directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+Makefile:114: recipe for target 'cmTryCompileExec4248252070/fast' failed
+make: *** [cmTryCompileExec4248252070/fast] Error 2
+
+File /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1028174067/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1028174067.dir/build.make CMakeFiles/cmTryCompileExec1028174067.dir/build
+make[1]: Entering directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1028174067.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1028174067.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1028174067
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1028174067.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1028174067.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1028174067 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1028174067.dir/build.make:88: recipe for target 'cmTryCompileExec1028174067' failed
+make[1]: *** [cmTryCompileExec1028174067] Error 1
+make[1]: Leaving directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+Makefile:114: recipe for target 'cmTryCompileExec1028174067/fast' failed
+make: *** [cmTryCompileExec1028174067/fast] Error 2
+
+
+Determining if the function glXGetProcAddressEXT exists failed with the following output:
+Change Dir: /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3436773533/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3436773533.dir/build.make CMakeFiles/cmTryCompileExec3436773533.dir/build
+make[1]: Entering directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3436773533.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT   -o CMakeFiles/cmTryCompileExec3436773533.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3436773533
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3436773533.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT    CMakeFiles/cmTryCompileExec3436773533.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3436773533 -rdynamic -lGL 
+CMakeFiles/cmTryCompileExec3436773533.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x15): undefined reference to `glXGetProcAddressEXT'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec3436773533.dir/build.make:89: recipe for target 'cmTryCompileExec3436773533' failed
+make[1]: *** [cmTryCompileExec3436773533] Error 1
+make[1]: Leaving directory '/home/nikolay/Projects/GameEngine/build/CMakeFiles/CMakeTmp'
+Makefile:114: recipe for target 'cmTryCompileExec3436773533/fast' failed
+make: *** [cmTryCompileExec3436773533/fast] Error 2
+
+
